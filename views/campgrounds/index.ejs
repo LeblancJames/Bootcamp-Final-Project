@@ -1,0 +1,28 @@
+
+<link rel="stylesheet" href='/stylesheets/index.css'>
+
+<%layout('./layouts/boilerplate')%>
+<h1 id="index-header">All Campgrounds</h1>
+<% for (let campground of campgrounds) {%>    
+    <div class = 'card mb-3'>
+        <div class = 'row'>
+            <div class="col-md-4"> <!--out of row above, take 4 units -->
+                <% if(campground.images.length) {%> 
+                <img class = 'img-fluid' src ='<%=campground.images[0].url%>'>
+                <% }else {%>
+                <img class = 'img-fluid' src ='https://res.cloudinary.com/dyy5trjg7/image/upload/v1672440525/YelpCamp/elgz9debfnpoz0u6seys.jpg'>
+                <%}%>
+
+            </div>
+            <div class = 'col-md-8'>
+                <h5 class='card-title'><%=campground.title%> </h5>
+                <p class ='card-text'><%=campground.description%></p>
+                <p class ='card-text'><small class = 'text-muted'><%=campground.location%></small></p>
+                <a class= 'btn btn-primary' href="/campgrounds/<%=campground._id%>">View <%=campground.title%></a>
+            </div>
+        </div>    
+    </div>
+    <!--using ejs to loop campgrounds collection that was sent over from app.js-->
+    <!--<li><a href='/campgrounds/<!%=campground._id%>'><!%=campground.title%></a></li>-->
+    <!-- make campground title into a link that gets /campgrounds/:id , which goes to campgrounds/show   = see line 42 of app.js-->
+<% } %>

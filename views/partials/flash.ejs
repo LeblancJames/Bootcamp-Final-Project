@@ -1,0 +1,16 @@
+
+<% if(success && success.length) { %>   <!--if flash success exists and is not empty. success is empty array on default-->
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <%= success %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close">
+        </button>
+    </div>
+<%}%>
+
+<% if(error && error.length) { %>  
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <%= error %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close">
+        </button>
+    </div>
+<%}%>
